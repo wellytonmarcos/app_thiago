@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 import 'package:thiago/models/temaModel.dart';
 
@@ -26,13 +24,6 @@ class TemaRepository {
     } else {
       return false;
     }
-  }
-
-  Future<ParseResponse> deletarTema(TemaModel _tema) async {
-    await inicializeParse();
-    final novoTema = ParseObject('tema')..set('tema', _tema.name);
-    final response = await novoTema.save();
-    return response;
   }
 
   Future<List<TemaModel>> getAllItems() async {

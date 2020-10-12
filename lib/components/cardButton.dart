@@ -1,19 +1,29 @@
 import 'package:flutter/material.dart';
 
+/**  
+ * Classe de renderizar um CardButton 
+ */
 class CardButton extends StatelessWidget {
-  String myRoute;
-  IconData myIcon;
-  String myTitle;
-  String myDescription;
-  CardButton({this.myRoute, this.myIcon, this.myTitle, this.myDescription});
+  String myRoute; //Rota do Button
+  IconData myIcon; //Icone
+  String myTitle; //Titulo
+  String myDescription; //Descrição
+  CardButton({
+    this.myRoute,
+    this.myIcon,
+    this.myTitle,
+    this.myDescription,
+  }); //Construtor
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      //Captura de toque
       onTap: () {
         Navigator.of(context).pushNamed(myRoute);
       },
       child: Card(
+        //Card
         color: Colors.white,
         child: Padding(
           padding: const EdgeInsets.all(8.0),

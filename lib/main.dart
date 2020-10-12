@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 import 'package:thiago/views/cadastroView.dart';
 import 'package:thiago/views/homeView.dart';
+import 'package:thiago/views/listaView.dart';
 import 'package:thiago/views/sobreView.dart';
 import 'package:thiago/views/temasView.dart';
 
@@ -22,6 +23,7 @@ var routes = <String, WidgetBuilder>{
   "/home": (BuildContext context) => HomeView(),
   "/cadastro": (BuildContext context) => CadastroView(),
   "/temas": (BuildContext context) => TemasView(),
+  "/lista": (BuildContext context) => ListaView(),
   "/sobre": (BuildContext context) => SobreView(),
 };
 

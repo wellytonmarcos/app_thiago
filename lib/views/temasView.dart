@@ -15,16 +15,10 @@ class _TemasViewState extends State<TemasView> {
     super.initState();
   }
 
-  void listar() async {
-    var _tema = await _temaController.listarTema();
-    print(_tema);
-  }
-
   @override
   Widget build(BuildContext context) {
-    //listar();
-
     return Scaffold(
+      key: _temaController.scaffoldKey,
       appBar: AppBar(
         centerTitle: true,
         title: Text('Cadastrar Temas'),

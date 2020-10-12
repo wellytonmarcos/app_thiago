@@ -1,22 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:thiago/components/cardButton.dart';
 
+/** 
+ * Classe de View para Tela Inicial
+ */
 class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('Plano de Estudos'),
-        backgroundColor: Colors.teal,
-        elevation: 0,
-      ),
       body: Container(
         color: Colors.teal,
         child: Expanded(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Text(
+                'Plano de Estudo',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 25,
+                ),
+              ),
+              Text(
+                'Gerencie seus planos de aprendizado!',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                ),
+              ),
+              const SizedBox(height: 30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -24,12 +36,13 @@ class HomeView extends StatelessWidget {
                       myRoute: '/cadastro',
                       myIcon: Icons.add,
                       myTitle: 'Novo',
-                      myDescription: 'Cadastra nova item'),
+                      myDescription:
+                          'Cadastra novo plano de estudo para sua carreira'),
                   CardButton(
                       myRoute: '/lista',
                       myIcon: Icons.list,
                       myTitle: 'Lista',
-                      myDescription: 'Lista planos cadastrados')
+                      myDescription: 'Lista planos de estudo cadastrados')
                 ],
               ),
               Row(
@@ -39,12 +52,12 @@ class HomeView extends StatelessWidget {
                       myRoute: '/temas',
                       myIcon: Icons.settings,
                       myTitle: 'Temas',
-                      myDescription: 'Gerenciar Temas de estudo'),
+                      myDescription: 'Gerenciar temas a serem estudados'),
                   CardButton(
                       myRoute: '/sobre',
                       myIcon: Icons.info_outline,
                       myTitle: 'Sobre',
-                      myDescription: 'Informações do App')
+                      myDescription: 'Informações do projeto')
                 ],
               ),
               const SizedBox(height: 30),
