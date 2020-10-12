@@ -13,6 +13,7 @@ class TemaController {
   final scaffoldKey = GlobalKey<ScaffoldState>(); //chave do Scaffold
   /**
    * Adiciona um novo tema
+   * return [void]
    */
   Future<void> adicionarTema() async {
     String _tema = adicionarTemaController.text;
@@ -30,18 +31,31 @@ class TemaController {
     }
   }
 
+  /**
+   * Exclui tema
+   * return [void]
+   */
   Future<void> excluirTema(String id) async {
     if (id == null || id == '') {
+      gerarSnakBar(scaffoldKey, 'Itens não identificado!', false);
     } else {
-      return await _temaRepository.excluirTema(id);
+      bool result = await _temaRepository.excluirTema(id);
+      if (result) {
+        gerarSnakBar(scaffoldKey, 'Tema Exluído!', true);
+      } else {
+        gerarSnakBar(scaffoldKey, 'Falha ao Exluir!', false);
+      }
     }
   }
 
+  /**
+   * Lista tema
+   * return [List] Todos os temas
+   */
   Future<List<TemaModel>> listarTema() async {
     List<TemaModel> myList = List<TemaModel>();
     try {
-      final myList = await TemaRepository().getAllItems();
-      return myList;
+      return await TemaRepository().getAllItems(); //Retorna todos itens
     } catch (e) {
       print(e);
     }

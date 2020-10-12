@@ -4,6 +4,11 @@ import 'package:thiago/models/temaModel.dart';
 import '../main.dart';
 
 class TemaRepository {
+  /** 
+   * Cadastra um Tema
+   * @param [_tema] Modelo de Tema
+   * @return [bool] resultado da operaçao 
+   */
   Future<bool> inserirTema(TemaModel _tema) async {
     await inicializeParse();
     final novoTema = ParseObject('tema')..set('name', _tema.name);
@@ -15,6 +20,11 @@ class TemaRepository {
     }
   }
 
+  /** 
+   * Deleta Tema
+   * @param [string] ID do Tema 
+   * @return [bool] resultado da operaçao 
+   */
   Future<bool> excluirTema(String id) async {
     await inicializeParse();
     final tema = await ParseObject('tema').delete(id: id);
@@ -26,6 +36,10 @@ class TemaRepository {
     }
   }
 
+  /** 
+   * Retorna todos os Temas
+   * @return [List] resultado da consulta 
+   */
   Future<List<TemaModel>> getAllItems() async {
     final apiResponse = await ParseObject('tema').getAll();
     if (apiResponse.success && apiResponse.count > 0) {
@@ -35,6 +49,10 @@ class TemaRepository {
     }
   }
 
+  /** 
+   * Formata os planos de Parse para Tema
+   * @return [List] resultado da operação 
+   */
   List<TemaModel> listTema(List<dynamic> result) {
     List<TemaModel> _lista = new List<TemaModel>();
     for (final ParseObject item in result) {

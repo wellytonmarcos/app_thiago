@@ -39,45 +39,40 @@ class _ListaViewState extends State<ListaView> {
         alignment: Alignment.topCenter,
         padding: const EdgeInsets.all(10),
         color: Colors.teal,
-        child: Expanded(
-          child: Container(
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  'Confira seus planos, clique sobre eles para detalhar!',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                FutureBuilder(
-                  future: _listaController.listarPlanos(),
-                  builder: (context, snapshot) {
-                    switch (snapshot.connectionState) {
-                      case ConnectionState.waiting:
-                      case ConnectionState.none:
-                        return widgetCarregando();
-                      default:
-                        if (snapshot.hasError) {
-                          return Container(
-                            child: Text('Não foi possível obter os dados!'),
-                          );
-                        } else {
-                          return Container(
-                              child: gerarItens(context, snapshot));
-                        }
-                    }
-                  },
-                ),
-              ],
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              'Confira seus planos, clique sobre eles para detalhar!',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+              ),
             ),
-          ),
+            const SizedBox(
+              height: 20,
+            ),
+            Expanded(
+              child: FutureBuilder(
+                future: _listaController.listarPlanos(),
+                builder: (context, snapshot) {
+                  switch (snapshot.connectionState) {
+                    case ConnectionState.waiting:
+                    case ConnectionState.none:
+                      return widgetCarregando();
+                    default:
+                      if (snapshot.hasError) {
+                        return Container(
+                          child: Text('Não foi possível obter os dados!'),
+                        );
+                      } else {
+                        return Container(child: gerarItens(context, snapshot));
+                      }
+                  }
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );

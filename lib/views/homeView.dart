@@ -10,63 +10,61 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       body: Container(
         color: Colors.teal,
-        child: Expanded(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Plano de Estudo',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 25,
-                ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Plano de Estudo',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 25,
               ),
-              Text(
-                'Gerencie seus planos de aprendizado!',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                ),
+            ),
+            Text(
+              'Gerencie seus planos de aprendizado!',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
               ),
-              const SizedBox(height: 30),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CardButton(
-                      myRoute: '/cadastro',
-                      myIcon: Icons.add,
-                      myTitle: 'Novo',
-                      myDescription:
-                          'Cadastra novo plano de estudo para sua carreira'),
-                  CardButton(
-                      myRoute: '/lista',
-                      myIcon: Icons.list,
-                      myTitle: 'Lista',
-                      myDescription: 'Lista planos de estudo cadastrados')
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CardButton(
-                      myRoute: '/temas',
-                      myIcon: Icons.settings,
-                      myTitle: 'Temas',
-                      myDescription: 'Gerenciar temas a serem estudados'),
-                  CardButton(
-                      myRoute: '/sobre',
-                      myIcon: Icons.info_outline,
-                      myTitle: 'Sobre',
-                      myDescription: 'Informações do projeto')
-                ],
-              ),
-              const SizedBox(height: 30),
-              Text(
-                'O melhor gerenciador de disciplinas de estudo',
-                style: TextStyle(fontSize: 14, color: Colors.white),
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(height: 30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CardButton(
+                    myRoute: '/cadastro',
+                    myIcon: Icons.add,
+                    myTitle: 'Novo',
+                    myDescription:
+                        'Cadastra novo plano de estudo para sua carreira'),
+                CardButton(
+                    myRoute: '/lista',
+                    myIcon: Icons.list,
+                    myTitle: 'Lista',
+                    myDescription: 'Lista planos de estudo cadastrados')
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CardButton(
+                    myRoute: '/temas',
+                    myIcon: Icons.settings,
+                    myTitle: 'Temas',
+                    myDescription: 'Gerenciar temas a serem estudados'),
+                CardButton(
+                    myRoute: '/sobre',
+                    myIcon: Icons.info_outline,
+                    myTitle: 'Sobre',
+                    myDescription: 'Informações do projeto')
+              ],
+            ),
+            const SizedBox(height: 30),
+            Text(
+              'O melhor gerenciador de disciplinas de estudo',
+              style: TextStyle(fontSize: 14, color: Colors.white),
+            ),
+          ],
         ),
       ),
     );

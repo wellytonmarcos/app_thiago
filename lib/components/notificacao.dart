@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
   */
 void gerarSnakBar(
     GlobalKey<ScaffoldState> scaffoldKey, String message, bool success) {
-  scaffoldKey.currentState.hideCurrentSnackBar();
+  scaffoldKey.currentState.hideCurrentSnackBar(); //Oculta existe
   final snackbar = SnackBar(
     duration: Duration(seconds: 10),
     content: Row(
@@ -23,5 +23,5 @@ void gerarSnakBar(
       ],
     ),
   );
-  scaffoldKey.currentState.showSnackBar(snackbar);
+  scaffoldKey.currentState.showSnackBar(snackbar); //GEra
 }

@@ -37,7 +37,7 @@ Future<void> inicializeParse() async {
       'https://parseapi.back4app.com/',
       clientKey: 'NoRm32MunDxt8jzRVeHCBJWHZAB067ojwPbUvGMK',
       autoSendSessionId: true,
-      debug: true);
+      debug: false);
 }
 
 class _ThiagoAppState extends State<ThiagoApp> {
